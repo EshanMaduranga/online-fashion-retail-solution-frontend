@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
-import NavBar from '../../Components/NavBar/NavBar'
 import './Stylesheets/Cart.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 import {AuthContext} from "../../Context/AuthProvider"
 import axios from 'axios';
 import CartRow from '../../Components/CartRow/CartRow';
 import NavBarTest from '../../Components/NavBarTest/NavBarTest';
-import FooterTest from '../../Components/Footer/FooterTest';
 
 const Cart = () => {
 

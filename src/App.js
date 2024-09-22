@@ -47,6 +47,7 @@ import FinishedInqPage from './Pages/inquiryManagement/FinishedInqPage';
 import InqManagementHome from './Pages/inquiryManagement/InqManagementHome';
 import NaviTest from './Pages/UserManagement/NaviTest';
 import CartTest from './Pages/UserManagement/CartTest';
+import Cart from './Pages/UserManagement/Cart';
 
 function App() {
 
@@ -69,7 +70,7 @@ function App() {
 
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/cart' element={<CartTest/>} />
+        <Route path='/cart' element={<Cart/>} />
         <Route path='/order' element={<Order/>} />
 
         <Route path='/omh' element={<OrderManagementHome/>} />
