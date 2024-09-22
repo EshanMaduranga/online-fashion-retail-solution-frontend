@@ -8,7 +8,6 @@ import Comment from '../../Components/Comment/Comment'
 import NavBarTest from '../../Components/NavBarTest/NavBarTest'
 import FooterTest from '../../Components/Footer/FooterTest'
 import ItemTest from '../../Components/Item/ItemTest'
-import ViewPageItem from '../../Components/Item/ViewPageItem'
 
 const View = () => {
     

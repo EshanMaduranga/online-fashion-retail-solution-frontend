@@ -186,7 +186,7 @@
 .viewPageCustSuggestionCntImg{
     position: absolute;
     top: 0;
-    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.454), rgb(255, 255, 255), rgba(150, 146, 121, 0.573), transparent), url(../../../Components/Asset/StaticAssets/leafImgRS2.jpg);
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.454), rgb(255, 255, 255), rgba(150, 146, 121, 0.573), transparent), url(https://res.cloudinary.com/dkrnap1pq/image/upload/v1726967024/leafImgRS2_sz7yg8.jpg);
     background-position: center;
     background-size: cover;
     width: 100%;

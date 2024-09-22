@@ -1,10 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import neworders from '../../../src/Components/Asset/StaticAssets/neworders.jpeg'
-import oip from '../../../src/Components/Asset/StaticAssets/oip.jpg'
-import shipped from '../../../src/Components/Asset/StaticAssets/shipped.jpg'
-import delivered from '../../../src/Components/Asset/StaticAssets/delivered.jpg'
 import InqManagementNav from './InqManagementNav';
 
 
@@ -21,7 +17,7 @@ const InqManagementHome = () => {
       <Row className="mt-4">
         <Col md={4}>
           <Card>
-            <Card.Img style={{height: "200px"}} variant="top" src={shipped} />
+            <Card.Img style={{height: "200px"}} variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964377/shipped_efxgps.jpg" />
             <Card.Body>
               <Card.Title>View New Inquires</Card.Title>
               <Card.Text style={{height: "50px"}}>View all new inquires.</Card.Text>
@@ -33,7 +29,7 @@ const InqManagementHome = () => {
         </Col>
         <Col md={4}>
           <Card>
-            <Card.Img style={{height: "200px"}} variant="top" src={delivered} />
+            <Card.Img style={{height: "200px"}} variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964422/delivered_t2eh8g.jpg"/>
             <Card.Body>
               <Card.Title>View Finished Inquires</Card.Title>
               <Card.Text style={{height: "50px"}}>view all finished inquires.</Card.Text>

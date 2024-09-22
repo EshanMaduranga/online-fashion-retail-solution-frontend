@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-image: linear-gradient( #a7968d, rgba(0, 0, 0, 0.655), rgba(0, 0, 0, 0.788), rgb(0, 0, 0)), url(../Asset/StaticAssets//footerImg.jpg);
+    background-image: linear-gradient( #a7968d, rgba(0, 0, 0, 0.655), rgba(0, 0, 0, 0.788), rgb(0, 0, 0)), url(https://res.cloudinary.com/dkrnap1pq/image/upload/v1726966716/footerImg_uequem.jpg);
     background-position: center;
     background-size: cover;
 }

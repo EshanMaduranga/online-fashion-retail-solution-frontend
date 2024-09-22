@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import './Stylesheets/Order.css'
-import NavBar from '../../Components/NavBar/NavBar'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {AuthContext} from "../../Context/AuthProvider"
 import axios from 'axios';

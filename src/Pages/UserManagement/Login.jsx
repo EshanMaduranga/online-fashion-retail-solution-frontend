@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import './Stylesheets/Login.css'
-import NavBar from '../../Components/NavBar/NavBar'
 import axios from 'axios'
 import { AuthContext } from '../../Context/AuthProvider'
 import { useNavigate } from 'react-router-dom'

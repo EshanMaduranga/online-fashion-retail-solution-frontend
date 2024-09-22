@@ -69,7 +69,7 @@ function App() {
 
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/cart' element={<Cart/>} />
+        <Route path='/cart' element={<CartTest/>} />
         <Route path='/order' element={<Order/>} />
 
         <Route path='/omh' element={<OrderManagementHome/>} />

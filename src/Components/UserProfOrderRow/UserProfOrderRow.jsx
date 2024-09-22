@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import img from '../Asset/ProductAssets/5.jpg'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 

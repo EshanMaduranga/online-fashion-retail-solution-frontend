@@ -1,5 +1,4 @@
 import React from 'react'
-import proImg from '../Asset/StaticAssets/img1.jpg'
 
 const ItemTest = ({id, desc, price, img}) => {
   return (
