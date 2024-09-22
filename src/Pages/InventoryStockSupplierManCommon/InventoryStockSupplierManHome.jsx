@@ -1,12 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
-import inventoryImage from '../../Components/Asset/StaticAssets/inventory.jpeg';
-import suppliersImage from '../../Components/Asset/StaticAssets/supplier.jpeg';
-import stockImage from '../../Components/Asset/StaticAssets/stock.jpeg';
-import reportsImage from '../../Components/Asset/StaticAssets/report.jpeg';
-import salesPredictionImage from '../../Components/Asset/StaticAssets/sales.png';
-import chartsImage from '../../Components/Asset/StaticAssets/chart.jpeg';
 import './Home.css';
 import InventoryStockSupplierManHeaderN from './InventoryStockSupplierManHeaderN';
 
@@ -19,7 +13,7 @@ function InventoryStockSupplierManHome() {
             <Row className="mt-5">
                 <Col className="text-center">
                     <Card>
-                        <Card.Img variant="top" src={inventoryImage} alt="Inventory" className="home-image" />
+                        <Card.Img variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726963545/inventory_dijn4y.jpg" alt="Inventory" className="home-image" />
                         <Card.Body>
                             <Card.Title>Manage Your Inventory</Card.Title>
                             <Card.Text>
@@ -33,7 +27,7 @@ function InventoryStockSupplierManHome() {
                 </Col>
                 <Col className="text-center">
                     <Card>
-                        <Card.Img variant="top" src={suppliersImage} alt="Suppliers" className="home-image" />
+                        <Card.Img variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726963941/supplier_nmmgew.jpg" alt="Suppliers" className="home-image" />
                         <Card.Body>
                             <Card.Title>Manage Your Suppliers</Card.Title>
                             <Card.Text>
@@ -47,7 +41,7 @@ function InventoryStockSupplierManHome() {
                 </Col>
                 <Col className="text-center">
                     <Card>
-                        <Card.Img variant="top" src={stockImage} alt="Stock" className="home-image" />
+                        <Card.Img variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964031/stock_syesxb.jpg" alt="Stock" className="home-image" />
                         <Card.Body>
                             <Card.Title>Manage Your Stock</Card.Title>
                             <Card.Text>
@@ -63,7 +57,7 @@ function InventoryStockSupplierManHome() {
             <Row className="mt-5">
                 <Col className="text-center">
                     <Card>
-                        <Card.Img variant="top" src={reportsImage} alt="Reports" className="home-image" />
+                        <Card.Img variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964088/report_mfk17h.jpg" alt="Reports" className="home-image" />
                         <Card.Body>
                             <Card.Title>View Reports</Card.Title>
                             <Card.Text>
@@ -77,7 +71,7 @@ function InventoryStockSupplierManHome() {
                 </Col>
                 <Col className="text-center">
                     <Card>
-                        <Card.Img variant="top" src={salesPredictionImage} alt="Sales Prediction" className="home-image" />
+                        <Card.Img variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964136/sales_qr6kjf.png" alt="Sales Prediction" className="home-image" />
                         <Card.Body>
                             <Card.Title>Sales Prediction</Card.Title>
                             <Card.Text>
@@ -91,7 +85,7 @@ function InventoryStockSupplierManHome() {
                 </Col>
                 <Col className="text-center">
                     <Card>
-                        <Card.Img variant="top" src={chartsImage} alt="Charts" className="home-image" />
+                        <Card.Img variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964184/chart_fbq7hq.jpg" alt="Charts" className="home-image" />
                         <Card.Body>
                             <Card.Title>View Charts</Card.Title>
                             <Card.Text>

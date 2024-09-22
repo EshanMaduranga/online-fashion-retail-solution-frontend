@@ -2,10 +2,6 @@ import React from 'react'
 import { useContext, useEffect } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import neworders from '../../../src/Components/Asset/StaticAssets/neworders.jpeg'
-import oip from '../../../src/Components/Asset/StaticAssets/oip.jpg'
-import shipped from '../../../src/Components/Asset/StaticAssets/shipped.jpg'
-import delivered from '../../../src/Components/Asset/StaticAssets/delivered.jpg'
 import OrderManagementHeader from './OrderManagementHeader';
 
 const OrderManagementHome = () => {
@@ -20,7 +16,7 @@ const OrderManagementHome = () => {
       <Row className="mt-4">
         <Col md={3} >
           <Card>
-            <Card.Img style={{height: "200px"}} variant="top" src={neworders} />
+            <Card.Img style={{height: "200px"}} variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964277/neworders_megljl.jpg" />
             <Card.Body>
               <Card.Title>View New Orders</Card.Title>
               <Card.Text style={{height: "50px"}}>View all new orders.</Card.Text>
@@ -32,7 +28,7 @@ const OrderManagementHome = () => {
         </Col>
         <Col md={3}>
           <Card>
-            <Card.Img style={{height: "200px"}} variant="top" src={oip} />
+            <Card.Img style={{height: "200px"}} variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964325/oip_aai9by.jpg" />
             <Card.Body>
               <Card.Title>Orders in Processing</Card.Title>
               <Card.Text style={{height: "50px"}}>View all orders in processing stage.</Card.Text>
@@ -44,7 +40,7 @@ const OrderManagementHome = () => {
         </Col>
         <Col md={3}>
           <Card>
-            <Card.Img style={{height: "200px"}} variant="top" src={shipped} />
+            <Card.Img style={{height: "200px"}} variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964377/shipped_efxgps.jpg" />
             <Card.Body>
               <Card.Title>View Shipped Orders</Card.Title>
               <Card.Text style={{height: "50px"}}>View all shipped orders.</Card.Text>
@@ -56,7 +52,7 @@ const OrderManagementHome = () => {
         </Col>
         <Col md={3}>
           <Card>
-            <Card.Img style={{height: "200px"}} variant="top" src={delivered} />
+            <Card.Img style={{height: "200px"}} variant="top" src="https://res.cloudinary.com/dkrnap1pq/image/upload/v1726964422/delivered_t2eh8g.jpg" />
             <Card.Body>
               <Card.Title>View delivered Orders</Card.Title>
               <Card.Text style={{height: "50px"}}>view all delivered orders.</Card.Text>

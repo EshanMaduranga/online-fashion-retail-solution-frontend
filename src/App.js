@@ -30,7 +30,7 @@ import QuantityMovementChart from './Pages/InventoryStockSupplierManCommon/Quant
 import SalesProjectionAnalysis from './Pages/InventoryStockSupplierManCommon/SalesProjectionAnalysis';
 import AddInventory from './Pages/InventoryManagement/addInventory';
 import ViewAllInventories from './Pages/InventoryManagement/viewAllInventories';
-import ViewInventory from './Pages/InventoryManagement/viewInventory';
+import ViewInventory from './Pages/InventoryManagement/ViewInventory';
 import UpdateInventory from './Pages/InventoryManagement/updateInventory';
 import AddSupplier from './Pages/SupplierManagement/addSupplier';
 import ViewAllSuppliers from './Pages/SupplierManagement/viewAllSuppliers';
