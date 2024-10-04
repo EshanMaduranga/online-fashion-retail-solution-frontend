@@ -28,7 +28,7 @@ const Review = () => {
       }, [location])
 
     useEffect(() => {
-        if(pid == 0) return
+        if(pid === 0) return
         axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/gtProbyid', {_id: pid})
         .then(res => {
             setDesc(res.data.response.desc)
@@ -39,7 +39,7 @@ const Review = () => {
     }, [pid])
 
     useEffect(() => {
-        if(orderId == '') return
+        if(orderId === '') return
         axios.post(process.env.REACT_APP_API_HOST + '/api/comment/getcommentbyorderid', {orderId})
         .then(res => {
             if(res.data.response !== null) setComment(res.data.response.comment)
@@ -48,7 +48,7 @@ const Review = () => {
     }, [orderId])
 
     useEffect(() => {
-        if(orderId == '') return
+        if(orderId === '') return
         axios.post(process.env.REACT_APP_API_HOST + '/api/order/getorderbyorderid', {orderId})
         .then(res => {
             setColor(res.data.response.color)
@@ -113,8 +113,8 @@ const Review = () => {
             <textarea placeholder="Write your review.." value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
             
             <div className="usrRvwCntTxtArBtnCnt">
-                { action == 'new' && <button onClick={submitComment}>Submit</button>}
-                { action == 'edit' && <button onClick={editComment}>Update</button>}
+                { action === 'new' && <button onClick={submitComment}>Submit</button>}
+                { action === 'edit' && <button onClick={editComment}>Update</button>}
             </div>
         </div>
       </div>

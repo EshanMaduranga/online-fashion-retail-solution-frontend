@@ -38,7 +38,7 @@ const UserProfile = () => {
 
     useEffect(() => {
 
-      if(auth.id == '') return
+      if(auth.id === '') return
       //console.log(auth)
         axios.post(process.env.REACT_APP_API_HOST + '/api/order/getordersbyuid', {id: auth.id})
         .then(res => setUserOrders(res.data.response))
@@ -47,7 +47,7 @@ const UserProfile = () => {
 
     useEffect(() => {
 
-      if(auth.id == '') return
+      if(auth.id === '') return
       //console.log(auth)
         axios.post(process.env.REACT_APP_API_HOST + '/api/user/getuserbyid', {_id: auth.id})
         .then(res => {

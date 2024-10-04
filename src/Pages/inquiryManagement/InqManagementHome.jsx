@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import InqManagementNav from './InqManagementNav';
 
 
