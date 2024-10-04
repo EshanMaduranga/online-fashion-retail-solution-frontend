@@ -22,13 +22,13 @@ const HomeTest = () => {
     const getAllProduct = () => {
 
         if(auth.ageCategory && auth.gender) {
-            axios.post('http://127.0.0.1:3001/api/inventory/getprobyageandgender', {ageCategory: auth.ageCategory, gender: auth.gender})
+            axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getprobyageandgender', {ageCategory: auth.ageCategory, gender: auth.gender})
             .then( resp => {
-                axios.post('http://127.0.0.1:3001/api/inventory/getproductbygender', {ageCategory: auth.ageCategory, gender: auth.gender})
+                axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbygender', {ageCategory: auth.ageCategory, gender: auth.gender})
                 .then(res => {
-                    axios.post('http://127.0.0.1:3001/api/inventory/getproductbyinvgendersameage', {ageCategory: auth.ageCategory, gender: auth.gender})
+                    axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbyinvgendersameage', {ageCategory: auth.ageCategory, gender: auth.gender})
                     .then(resthree => {
-                        axios.post('http://127.0.0.1:3001/api/inventory/getproductbyinvgenderinvage', {ageCategory: auth.ageCategory, gender: auth.gender})
+                        axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbyinvgenderinvage', {ageCategory: auth.ageCategory, gender: auth.gender})
                         .then(resFour => {
 
                             setAllProduct([...resp.data.response, ...res.data.response, ...resthree.data.response, ...resFour.data.response])
@@ -42,7 +42,7 @@ const HomeTest = () => {
             })
             .catch(err => console.log(err))
         } else {
-            axios.post('http://127.0.0.1:3001/api/inventory')
+            axios.post(process.env.REACT_APP_API_HOST + '/api/inventory')
             .then(res => setAllProduct(res.data))
             .catch(err => console.log(err))
         }

@@ -11,7 +11,7 @@ const ShippedOrders = () => {
   const componentRef = useRef()
 
   useEffect(()=>{
-    axios.post('http://127.0.0.1:3001/api/order/getorders',{status : 'shipped'})
+    axios.post(process.env.REACT_APP_API_HOST + '/api/order/getorders',{status : 'shipped'})
     .then(res=> setOrder(res.data.response))
     .catch(err=> console.log(err))
 
@@ -20,7 +20,7 @@ const ShippedOrders = () => {
   const changeStateDelivered = (orderId) => {
     console.log(orderId)
 
-    axios.patch('http://127.0.0.1:3001/api/order/updateordersatebyorderid', {_id: orderId, status: "delivered"})
+    axios.patch(process.env.REACT_APP_API_HOST + '/api/order/updateordersatebyorderid', {_id: orderId, status: "delivered"})
     .then(res => setOrder(order.filter((order) => order._id !== orderId)))
     .catch(err => console.log(err))
     
@@ -28,7 +28,7 @@ const ShippedOrders = () => {
   const changeStateProcessing = (orderId) => {
     console.log(orderId)
 
-    axios.patch('http://127.0.0.1:3001/api/order/updateordersatebyorderid', {_id: orderId, status: "processing"})
+    axios.patch(process.env.REACT_APP_API_HOST + '/api/order/updateordersatebyorderid', {_id: orderId, status: "processing"})
     .then(res => setOrder(order.filter((order) => order._id !== orderId)))
     .catch(err => console.log(err))
     

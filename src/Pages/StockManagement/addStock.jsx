@@ -17,7 +17,7 @@ function AddStock() {
     useEffect(() => {
         const fetchClothOptions = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:3001/api/inventory');
+                const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/inventory');
                 const clothOptions = response.data.map(item => ({ id: item.clothId, name: item.clothType }));
                 setClothOptions(clothOptions);
             } catch (error) {
@@ -44,7 +44,7 @@ function AddStock() {
         const currentDate = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
         try {
             const updatedFormData = { ...formData, lastUpdated: currentDate }; // Include lastUpdated in updatedFormData
-            const response = await axios.post('http://127.0.0.1:3001/api/stock', updatedFormData);
+            const response = await axios.post(process.env.REACT_APP_API_HOST + '/api/stock', updatedFormData);
             console.log(response.data);
             setSuccess('Stock added successfully.');
             setError('');

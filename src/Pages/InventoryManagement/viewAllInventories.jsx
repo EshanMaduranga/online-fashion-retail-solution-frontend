@@ -16,7 +16,7 @@ function ViewAllInventories() {
     useEffect(() => {
         const fetchInventory = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:3001/api/inventory');
+                const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/inventory');
                 setInventory(response.data);
                 //console.log(response.data);
             } catch (error) {
@@ -28,7 +28,7 @@ function ViewAllInventories() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://127.0.0.1:3001/api/inventory/${id}`);
+            await axios.delete(`${process.env.REACT_APP_API_HOST}/api/inventory/${id}`);
             setInventory(prevInventory => prevInventory.filter(item => item._id !== id));
         } catch (error) {
             console.error('Error:', error);

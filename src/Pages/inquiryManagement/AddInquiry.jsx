@@ -26,7 +26,7 @@ const AddInquiry = () => {
     if(!PHONE_NO_REGX.test(phoneNum)) setErrPhone("add valid phone number")
 
     if(name && inquiry && phoneNum && PHONE_NO_REGX.test(phoneNum)){
-      axios.post('http://127.0.0.1:3001/api/inquiry/add', {name, inquiry, phoneNum, state: "new"})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/inquiry/add', {name, inquiry, phoneNum, state: "new"})
       .then(res => navigate('/'))
       .catch(err => console.log(err))
     }

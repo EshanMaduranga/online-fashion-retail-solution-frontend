@@ -9,7 +9,7 @@ function ViewSupplier() {
     useEffect(() => {
         const fetchSupplier = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:3001/api/suppliers/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_HOST}/api/suppliers/${id}`);
                 setSupplier(response.data);
             } catch (error) {
                 console.error('Error:', error);

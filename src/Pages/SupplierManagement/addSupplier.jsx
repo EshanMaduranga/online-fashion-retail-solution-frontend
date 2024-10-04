@@ -41,7 +41,7 @@ function AddSupplier() {
         //const currentDate = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
         try {
             //const updatedFormData = { ...formData, lastUpdated: currentDate };
-            const response = await axios.post('http://127.0.0.1:3001/api/suppliers', formData);
+            const response = await axios.post(process.env.REACT_APP_API_HOST + '/api/suppliers', formData);
             console.log(response.data);
             setSuccess('Supplier added successfully.');
             setError('');

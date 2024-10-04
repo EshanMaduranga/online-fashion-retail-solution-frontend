@@ -24,7 +24,7 @@ const ViewAllTasks = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:3001/api/tasks');
+        const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/tasks');
         setTasks(response.data);
       } catch (error) {
         console.error(error);
@@ -37,7 +37,7 @@ const ViewAllTasks = () => {
   const handleDelete = async (taskId) => {
     console.log('Delete task with ID:', taskId);
     try {
-      const response = await axios.delete(`http://127.0.0.1:3001/api/tasks/${taskId}`);
+      const response = await axios.delete(`${process.env.REACT_APP_API_HOST}/api/tasks/${taskId}`);
       console.log(response.data);
       // Update tasks list after deletion
       setTasks(tasks.filter((task) => task._id !== taskId));

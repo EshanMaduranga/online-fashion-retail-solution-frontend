@@ -23,13 +23,13 @@ const ViewAllEmployees = () => {
   useEffect(() => {
       const fetchData = async () => {
           try {
-            const response = await axios.get('http://127.0.0.1:3001/api/emp', {headers: {
+            const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/emp', {headers: {
               'Authorization': 'bearer ' + authData.token
             }});
             setEmployees(response.data);
           } catch (error) {
             if(error.response.data.error == 'TokenExpiredError'){
-              axios.get('http://127.0.0.1:3001/api/auth/getrefreshtoken')
+              axios.get(process.env.REACT_APP_API_HOST + '/api/auth/getrefreshtoken')
               .then(res => console.log(res))
               .catch(err => console.log(err))
             }
@@ -46,7 +46,7 @@ const ViewAllEmployees = () => {
   const handleDelete = async (id) => {
     console.log('Delete employee with ID:', id);
     try {
-      const response = await axios.delete(`http://127.0.0.1:3001/api/emp/${id}`, {headers: {
+      const response = await axios.delete(`${process.env.REACT_APP_API_HOST}/api/emp/${id}`, {headers: {
         'Authorization': 'bearer ' + authData.token
       }});
       console.log(response.data);

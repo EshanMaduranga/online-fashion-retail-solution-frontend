@@ -53,7 +53,7 @@ const View = () => {
     },[age, clothType, gender])
 
     const getProduct = () => {
-      axios.post('http://127.0.0.1:3001/api/inventory/gtProbyid', {_id: pid})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/gtProbyid', {_id: pid})
       .then(res => {
         console.log(res)
         setDesc(res.data.response.desc)
@@ -69,7 +69,7 @@ const View = () => {
     }
 
     useEffect(() => {
-      axios.post('http://127.0.0.1:3001/api/comment/productcomment', {pid})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/comment/productcomment', {pid})
       .then(res => setComment(res.data.response))
       .catch(error => console.log(error))
   }, [])
@@ -79,13 +79,13 @@ const View = () => {
 
     if(!age || !clothType || !gender ) return
     if(age && clothType && gender) {
-      axios.post('http://127.0.0.1:3001/api/inventory/getproductbyagegendercltype', {ageCategory: age, clothType, gender, _id: pid})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbyagegendercltype', {ageCategory: age, clothType, gender, _id: pid})
       .then(resOne => {
-        axios.post('http://127.0.0.1:3001/api/inventory/getproductbyinvagegendercltype', {ageCategory: age, clothType, gender})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbyinvagegendercltype', {ageCategory: age, clothType, gender})
         .then(resTwo => {
-          axios.post('http://127.0.0.1:3001/api/inventory/getproductbyagegenderinvcltype', {ageCategory: age, clothType, gender})
+          axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbyagegenderinvcltype', {ageCategory: age, clothType, gender})
           .then(resThree => {
-            axios.post('http://127.0.0.1:3001/api/inventory/getproductbyinvagegenderinvcltype', {ageCategory: age, clothType, gender})
+            axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbyinvagegenderinvcltype', {ageCategory: age, clothType, gender})
             .then(resFour => {
               setAllProduct([...resOne.data.response, ...resTwo.data.response, ...resThree.data.response, ...resFour.data.response])
             })
@@ -96,7 +96,7 @@ const View = () => {
       })
       .catch(err => console.log(err))
     } else{
-      axios.post('http://127.0.0.1:3001/api/inventory')
+      axios.post(process.env.REACT_APP_API_HOST + '/api/inventory')
       .then(res => setAllProduct(res.data))
       .catch(err => console.log(err))
     }
@@ -111,7 +111,7 @@ const View = () => {
 
        
         //console.log(data)
-        axios.post('http://127.0.0.1:3001/api/cart/addcart',{id: auth.id,pid, size, color, qty})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/cart/addcart',{id: auth.id,pid, size, color, qty})
         .then(res => {
           //console.log(res)
           navigate("/cart")

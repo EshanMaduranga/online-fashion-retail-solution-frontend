@@ -35,7 +35,7 @@ const EmployeeLogin = ({data, setData}) => {
             if(!EMAIL_REGEX.test(email)) return setErrMsg("please enter valid email")
             else if(!password) return setErrMsg("please type password")
 
-            axios.post('http://127.0.0.1:3001/api/emp/login', {email, password})
+            axios.post(process.env.REACT_APP_API_HOST + '/api/emp/login', {email, password})
             .then(res => {
                 setAuth({id: res.data.response._id, email: res.data.response.email, firstName: res.data.response.firstName, role: res.data.response.role, token: res.data.token})
                 console.log(res)

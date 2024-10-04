@@ -5,7 +5,7 @@ const ViewTkRw = ({id}) => {
     const [tFn, setTfn] = useState('')
     const [tLn, setTLn] = useState('')
 
-    axios.get(`http://127.0.0.1:3001/api/emp/${id}`)
+    axios.get(`${process.env.REACT_APP_API_HOST}/api/emp/${id}`)
     .then(res => {
       setTfn(res.data.firstName)
       setTLn(res.data.lastName)

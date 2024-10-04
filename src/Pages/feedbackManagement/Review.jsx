@@ -29,7 +29,7 @@ const Review = () => {
 
     useEffect(() => {
         if(pid == 0) return
-        axios.post('http://127.0.0.1:3001/api/inventory/gtProbyid', {_id: pid})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/gtProbyid', {_id: pid})
         .then(res => {
             setDesc(res.data.response.desc)
             setPrice(res.data.response.price)
@@ -40,7 +40,7 @@ const Review = () => {
 
     useEffect(() => {
         if(orderId == '') return
-        axios.post('http://127.0.0.1:3001/api/comment/getcommentbyorderid', {orderId})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/comment/getcommentbyorderid', {orderId})
         .then(res => {
             if(res.data.response !== null) setComment(res.data.response.comment)
         })
@@ -49,7 +49,7 @@ const Review = () => {
 
     useEffect(() => {
         if(orderId == '') return
-        axios.post('http://127.0.0.1:3001/api/order/getorderbyorderid', {orderId})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/order/getorderbyorderid', {orderId})
         .then(res => {
             setColor(res.data.response.color)
             setSize(res.data.response.size)
@@ -59,7 +59,7 @@ const Review = () => {
 
 
     const submitComment = () => {
-        axios.post('http://127.0.0.1:3001/api/comment/createcomment', {pid, uid: auth.id, orderId, comment})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/comment/createcomment', {pid, uid: auth.id, orderId, comment})
         .then(res => {
             console.log(res)
             navigate("/up")
@@ -68,7 +68,7 @@ const Review = () => {
     }
 
     const editComment = () => {
-        axios.patch('http://127.0.0.1:3001/api/comment/updatecommentbyorderid', {orderId, comment})
+        axios.patch(process.env.REACT_APP_API_HOST + '/api/comment/updatecommentbyorderid', {orderId, comment})
         .then(res => {
             navigate("/up")
         })

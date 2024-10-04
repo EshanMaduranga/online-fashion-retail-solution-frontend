@@ -9,7 +9,7 @@ const CartRow = ({iid, pid, color, size, qty, totalPrice, setPrice, selectedItem
     const [isChecked, setIsChecked] = useState(false);
 
     useEffect(()=>{
-        axios.post('http://127.0.0.1:3001/api/inventory/gtProbyid',{_id:pid}).then(res => {
+        axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/gtProbyid',{_id:pid}).then(res => {
             setProData(res.data.response)
             //console.log(res.data.response)
           })
@@ -35,7 +35,7 @@ const CartRow = ({iid, pid, color, size, qty, totalPrice, setPrice, selectedItem
     }
 
     const deleteRow = ()=> {
-      axios.post('http://127.0.0.1:3001/api/cart/deletecartitem', {_id: iid})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/cart/deletecartitem', {_id: iid})
       .then(res => {
 
 

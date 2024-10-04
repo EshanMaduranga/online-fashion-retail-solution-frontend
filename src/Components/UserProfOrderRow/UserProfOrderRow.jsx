@@ -12,7 +12,7 @@ const UserProfOrderRow = ({pid, color, size, qty, status, orderId}) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.post('http://127.0.0.1:3001/api/inventory/gtProbyid', {_id: pid})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/gtProbyid', {_id: pid})
         .then(res => {
             console.log(res.data.response)
             setDesc(res.data.response.desc)
@@ -23,7 +23,7 @@ const UserProfOrderRow = ({pid, color, size, qty, status, orderId}) => {
     }, [])
 
     useEffect(() => {
-        axios.post('http://127.0.0.1:3001/api/comment/getcommentbyorderid', {orderId})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/comment/getcommentbyorderid', {orderId})
         .then(res => {
             if(res.data.response !== null) setComment(res.data.response.comment)
         })
@@ -35,7 +35,7 @@ const UserProfOrderRow = ({pid, color, size, qty, status, orderId}) => {
     }
 
     const deleteBtnHandle = () => {
-        axios.post('http://127.0.0.1:3001/api/comment/deletecommentbyorderid', {orderId})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/comment/deletecommentbyorderid', {orderId})
         .then(res => {
             if(res.data.response.deletedCount == 1) setComment('')
         })

@@ -12,7 +12,7 @@ function ViewAllStocks() {
     useEffect(() => {
         const fetchStocks = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:3001/api/stock');
+                const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/stock');
                 setStocks(response.data);
             } catch (error) {
                 console.error('Error:', error);
@@ -27,7 +27,7 @@ function ViewAllStocks() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://127.0.0.1:3001/api/stock/${id}`);
+            await axios.delete(`${process.env.REACT_APP_API_HOST}/api/stock/${id}`);
             setStocks(prevStocks => prevStocks.filter(stock => stock._id !== id));
         } catch (error) {
             console.error('Error:', error);

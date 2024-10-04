@@ -26,13 +26,13 @@ useEffect(()=>{
 
       const age = auth.ageCategory
 
-      axios.post('http://127.0.0.1:3001/api/inventory/getprobyageandgender', {ageCategory: age, gender: category})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getprobyageandgender', {ageCategory: age, gender: category})
       .then(resOne => {
-        axios.post('http://127.0.0.1:3001/api/inventory/getproductbygender', {ageCategory: age, gender: category})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbygender', {ageCategory: age, gender: category})
         .then(resTwo => {
-          axios.post('http://127.0.0.1:3001/api/inventory/getproductbyagegenderinvcltype', {})
+          axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbyagegenderinvcltype', {})
           .then(resThree => {
-            axios.post('http://127.0.0.1:3001/api/inventory/getproductbyinvagegenderinvcltype', {})
+            axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbyinvagegenderinvcltype', {})
             .then(resFour => {
               setAllProduct([...resOne.data.response, ...resTwo.data.response, ...resThree.data.response, ...resFour.data.response])
             })
@@ -43,7 +43,7 @@ useEffect(()=>{
       })
       .catch(err => console.log(err))
     }else if(category) {
-      axios.post('http://127.0.0.1:3001/api/inventory/getproductbygender', {gender: category})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/getproductbygender', {gender: category})
       .then(res => {
         setAllProduct(res.data.response)
       })

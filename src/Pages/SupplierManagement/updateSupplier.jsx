@@ -20,7 +20,7 @@ function UpdateSupplier() {
     useEffect(() => {
         const fetchSupplier = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:3001/api/suppliers/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_HOST}/api/suppliers/${id}`);
                 const { supplierId, supplierName, contactInfo, address, clothType, quantity, price, dateSupplied, lastUpdated } = response.data;
                 setFormData({ supplierId, supplierName, contactInfo, address, clothType, quantity, price, dateSupplied, lastUpdated });
             } catch (error) {
@@ -39,7 +39,7 @@ function UpdateSupplier() {
         //const currentDate = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
         try {
             //const updatedFormData = { ...formData, lastUpdated: currentDate };
-            const response = await axios.put(`http://127.0.0.1:3001/api/suppliers/${id}`, formData);
+            const response = await axios.put(`${process.env.REACT_APP_API_HOST}/api/suppliers/${id}`, formData);
             console.log(response.data);
             setSuccess('Supplier updated successfully.');
             setError('');
