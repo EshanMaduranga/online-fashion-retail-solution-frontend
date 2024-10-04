@@ -8,7 +8,7 @@ const Comment = ({comment, uid}) => {
     const [lastName, setLastName] = useState('')
 
     useEffect(() => {
-        axios.post('http://127.0.0.1:3001/api/user/getuserbyid', {_id: uid})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/user/getuserbyid', {_id: uid})
         .then(res => {
             //console.log(uid)
             setFirstName(res.data.response.firstName)

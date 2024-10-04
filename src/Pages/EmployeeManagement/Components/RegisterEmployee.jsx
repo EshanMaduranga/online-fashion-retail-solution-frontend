@@ -48,7 +48,7 @@ const RegisterEmployee = () => {
     try {
       // Validate form data before submission
       if (validateForm()) {
-        const response = await axios.post('http://127.0.0.1:3001/api/emp', employeeData, {headers: {
+        const response = await axios.post(process.env.REACT_APP_API_HOST + '/api/emp', employeeData, {headers: {
           'Authorization': 'bearer ' + authData.token
         }});
         // Reset form after successful submission

@@ -16,7 +16,7 @@ function ViewAllSuppliers() {
     useEffect(() => {
         const fetchSuppliers = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:3001/api/suppliers');
+                const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/suppliers');
                 setSuppliers(response.data);
             } catch (error) {
                 console.error('Error:', error);
@@ -27,7 +27,7 @@ function ViewAllSuppliers() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://127.0.0.1:3001/api/suppliers/${id}`);
+            await axios.delete(`${process.env.REACT_APP_API_HOST}/api/suppliers/${id}`);
             setSuppliers(prevSuppliers => prevSuppliers.filter(supplier => supplier._id !== id));
         } catch (error) {
             console.error('Error:', error);

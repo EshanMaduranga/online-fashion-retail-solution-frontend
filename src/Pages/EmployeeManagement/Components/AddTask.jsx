@@ -29,7 +29,7 @@ const AddTask = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:3001/api/emp', {headers: {
+        const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/emp', {headers: {
           'Authorization': 'bearer ' + authData.token
         }});
         setEmployees(response.data);
@@ -49,7 +49,7 @@ const AddTask = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:3001/api/tasks', taskData, {headers: {
+      const response = await axios.post(process.env.REACT_APP_API_HOST + '/api/tasks', taskData, {headers: {
         'Authorization': 'bearer ' + authData.token
       }});
       console.log(response.data);

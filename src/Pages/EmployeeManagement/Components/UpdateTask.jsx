@@ -20,10 +20,10 @@ const UpdateTask = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const taskResponse = await axios.get(`http://127.0.0.1:3001/api/tasks/${id}`);
+        const taskResponse = await axios.get(`${process.env.REACT_APP_API_HOST}/api/tasks/${id}`);
         setTaskData(taskResponse.data);
 
-        const employeesResponse = await axios.get('http://127.0.0.1:3001/api/tasks');
+        const employeesResponse = await axios.get(process.env.REACT_APP_API_HOST + '/api/tasks');
         setEmployees(employeesResponse.data);
       } catch (error) {
         console.error(error);
@@ -41,7 +41,7 @@ const UpdateTask = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://127.0.0.1:3001/api/tasks/${id}`, taskData);
+      const response = await axios.put(`${process.env.REACT_APP_API_HOST}/api/tasks/${id}`, taskData);
       console.log(response.data);
       alert('Task Details Updated Successfully');
       navigate("/tasks")

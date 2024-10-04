@@ -23,7 +23,7 @@ const Cart = () => {
 
     if(auth.token == null) navigate("/login")
     else {
-      axios.post('http://127.0.0.1:3001/api/cart/getcartitem', {id: auth.id})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/cart/getcartitem', {id: auth.id})
       .then(res => {
         console.log(res.data.response)
         setCartItem(res.data.response)
@@ -47,11 +47,11 @@ const Cart = () => {
 
   const myFun =(iid)=>{
     
-    axios.post('http://127.0.0.1:3001/api/cart/deletecartitem', {_id: iid})
+    axios.post(process.env.REACT_APP_API_HOST + '/api/cart/deletecartitem', {_id: iid})
     .then(res => {
 
       setCartItem([])
-      axios.post('http://127.0.0.1:3001/api/cart/getcartitem', {id: auth.id})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/cart/getcartitem', {id: auth.id})
       .then(res => {
         console.log(res.data.response)
         setCartItem(res.data.response)

@@ -23,7 +23,7 @@ function UpdateInventory() {
     useEffect(() => {
         if(imgUrl.length) {
             console.log('Img received')
-            axios.put(`http://127.0.0.1:3001/api/inventory/${id}`, formData)
+            axios.put(`${process.env.REACT_APP_API_HOST}/api/inventory/${id}`, formData)
             .then(res => {
                 setError('')
                 setSuccess('Inventory added successfully.')
@@ -39,7 +39,7 @@ function UpdateInventory() {
 
         const fetchInventoryItem = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:3001/api/inventory/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_HOST}/api/inventory/${id}`);
 
                 const { age, clothType, color, colorCode, date, desc, gender, img, price, qty, supplier, _id} = response.data.inventoryItem;
                 setFormData({ age, clothType, color, colorCode, date, desc, gender, img, price, qty, supplier, _id});
@@ -50,7 +50,7 @@ function UpdateInventory() {
 
             const fetchData = async () => {
                 try {
-                    const response = await axios.get('http://127.0.0.1:3001/api/suppliers');
+                    const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/suppliers');
                     setSuppliers(response.data);
 
 
@@ -84,7 +84,7 @@ function UpdateInventory() {
         const currentDate = new Date().toISOString().split('T')[0];
         try {
             const updatedFormData = { ...formData, lastUpdated: currentDate };
-            const response = await axios.put(`http://127.0.0.1:3001/api/inventory/${id}`, updatedFormData);
+            const response = await axios.put(`${process.env.REACT_APP_API_HOST}/api/inventory/${id}`, updatedFormData);
             console.log(response.data);
             setSuccess('Inventory item updated successfully.');
             setError('');
@@ -111,7 +111,7 @@ function UpdateInventory() {
         reader.readAsDataURL(filex)
   
         reader.onload = () => {
-          axios.post('http://127.0.0.1:3001/api/upload', {img: reader.result})
+          axios.post(process.env.REACT_APP_API_HOST + '/api/upload', {img: reader.result})
           .then(res => {
             if(res.data.result.url !== '') {
                 console.log(res.data.result.url)

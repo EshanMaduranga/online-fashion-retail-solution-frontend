@@ -55,7 +55,7 @@ const Order = () => {
   },[auth])
 
   useEffect(() => {
-    axios.post('http://127.0.0.1:3001/api/user/getaddressbyuid', {ownerId: auth.id})
+    axios.post(process.env.REACT_APP_API_HOST + '/api/user/getaddressbyuid', {ownerId: auth.id})
     .then(res => {
       setAddress(res.data.response.address)
 
@@ -77,11 +77,11 @@ const Order = () => {
     console.log("clicked")
     selectedIteme.map((item) => {
       
-      axios.post('http://127.0.0.1:3001/api/order/addorder', {id: item.id, pid: item.pid, color: item.color, size: item.size, qty: item.qty, status: "new", address} )
+      axios.post(process.env.REACT_APP_API_HOST + '/api/order/addorder', {id: item.id, pid: item.pid, color: item.color, size: item.size, qty: item.qty, status: "new", address} )
       .then(res => {
         console.log(res)
 
-        axios.post('http://127.0.0.1:3001/api/cart/deletecartitem', {_id: item._id})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/cart/deletecartitem', {_id: item._id})
         .then(res => {
           setSucRate(true)
         })

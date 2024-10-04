@@ -59,7 +59,7 @@ const Register = () => {
         const userData = {firstName: fname, lastName: lname, email, password, dob, gender, role: 'user'}
         //console.log(data)
 
-        axios.post('http://127.0.0.1:3001/api/user/register', userData)
+        axios.post(process.env.REACT_APP_API_HOST + '/api/user/register', userData)
         .then(res => {
             //console.log(res.data)
             const newData = {id: res.data.response.id, token: res.data.token, refreshToken: res.data.refreshToken, firstName: res.data.response.firstName, email: res.data.response.email, role: res.data.response.role, ageCategory: res.data.response.ageCategory, gender: res.data.response.gender}

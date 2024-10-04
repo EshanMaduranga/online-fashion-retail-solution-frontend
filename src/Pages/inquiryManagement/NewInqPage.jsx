@@ -11,7 +11,7 @@ const NewInqPage = () => {
     const componentRef = useRef()
 
     useEffect(() => {
-        axios.post('http://127.0.0.1:3001/api/inquiry/getallbystate', {state: 'new'})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/inquiry/getallbystate', {state: 'new'})
         .then(res => SetInquire(res.data))
         .catch(err => console.log(err))
 
@@ -20,7 +20,7 @@ const NewInqPage = () => {
     const changeState = (inqId) => {
         console.log(inqId)
     
-        axios.patch('http://127.0.0.1:3001/api/inquiry/updateinqbyid', {_id: inqId, state: "finished"})
+        axios.patch(process.env.REACT_APP_API_HOST + '/api/inquiry/updateinqbyid', {_id: inqId, state: "finished"})
         .then(res => SetInquire(inquiry.filter((inquiry) => inquiry._id !== inqId)))
         .catch(err => console.log(err))
         

@@ -25,7 +25,7 @@ const Attendance = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:3001/api/emp', {headers: {
+        const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/emp', {headers: {
           'Authorization': 'bearer ' + authData.token
         }});
         setEmployees(response.data);
@@ -48,7 +48,7 @@ const Attendance = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:3001/api/attendance', { employeeId, status });
+      const response = await axios.post(process.env.REACT_APP_API_HOST + '/api/attendance', { employeeId, status });
       console.log(response.data);
       // Reset form after successful submission
       setEmployeeId('');

@@ -24,7 +24,7 @@ const UpdateEmployee = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:3001/api/emp/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_HOST}/api/emp/${id}`);
         setEmployeeData(response.data);
       } catch (error) {
         setError('Error fetching employee data');
@@ -59,7 +59,7 @@ const UpdateEmployee = () => {
       };
 
       try {
-        const response = await axios.put(`http://127.0.0.1:3001/api/emp/${id}`, updatedEmployeeData);
+        const response = await axios.put(`${process.env.REACT_APP_API_HOST}/api/emp/${id}`, updatedEmployeeData);
         console.log(response.data);
         alert('Employee Details Updated Successfully');
         navigate("/employees")

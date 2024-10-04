@@ -40,7 +40,7 @@ const UserProfile = () => {
 
       if(auth.id == '') return
       //console.log(auth)
-        axios.post('http://127.0.0.1:3001/api/order/getordersbyuid', {id: auth.id})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/order/getordersbyuid', {id: auth.id})
         .then(res => setUserOrders(res.data.response))
         .catch(error => console.log(error))
     }, [auth])
@@ -49,7 +49,7 @@ const UserProfile = () => {
 
       if(auth.id == '') return
       //console.log(auth)
-        axios.post('http://127.0.0.1:3001/api/user/getuserbyid', {_id: auth.id})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/user/getuserbyid', {_id: auth.id})
         .then(res => {
           console.log(res.data)
           setFirstname(auth.firstName)
@@ -61,7 +61,7 @@ const UserProfile = () => {
     }, [auth])
 
     useEffect(() => {
-        axios.post('http://127.0.0.1:3001/api/user/getaddressbyuid', {ownerId: auth.id})
+        axios.post(process.env.REACT_APP_API_HOST + '/api/user/getaddressbyuid', {ownerId: auth.id})
         .then(res => {
           setaddress(res.data.response.address)
 
@@ -88,7 +88,7 @@ const UserProfile = () => {
     const handlefNameUpdate = () => {
 
 
-      axios.patch('http://127.0.0.1:3001/api/user/updateuserfname', {_id: auth.id, firstName})
+      axios.patch(process.env.REACT_APP_API_HOST + '/api/user/updateuserfname', {_id: auth.id, firstName})
       .then(res => {})
       .catch(error => console.log(error))
 
@@ -102,7 +102,7 @@ const UserProfile = () => {
     
     const handlelNameUpdate = () => {
 
-      axios.patch('http://127.0.0.1:3001/api/user/updateuserlname', {_id: auth.id, lastName})
+      axios.patch(process.env.REACT_APP_API_HOST + '/api/user/updateuserlname', {_id: auth.id, lastName})
       .then(res => {})
       .catch(error => console.log(error))
       //do function
@@ -126,7 +126,7 @@ const UserProfile = () => {
       if(newPw !== confNewPw) return setedtPwErMsg('Confirm password not match')
 
 
-      axios.patch('http://127.0.0.1:3001/api/user/updateuserpw', {_id: auth.id, password: newPw})
+      axios.patch(process.env.REACT_APP_API_HOST + '/api/user/updateuserpw', {_id: auth.id, password: newPw})
       .then(res => {
         pwEditCntRef.current.classList.toggle("phide")
         pwShowRef.current.classList.toggle("phide")
@@ -150,7 +150,7 @@ const UserProfile = () => {
 
     const handleAddUpdate = () => {
 
-      axios.post('http://127.0.0.1:3001/api/user/updateuseraddress', {ownerId: auth.id, address})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/user/updateuseraddress', {ownerId: auth.id, address})
       .then(res => {})
       .catch(error => console.log(error))
 

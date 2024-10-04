@@ -10,7 +10,7 @@ function ViewInventory() {
     useEffect(() => {
         const fetchInventoryItem = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:3001/api/inventory/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_HOST}/api/inventory/${id}`);
                 setInventory(response.data);
             } catch (error) {
                 console.error('Error:', error);

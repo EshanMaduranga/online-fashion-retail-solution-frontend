@@ -9,7 +9,7 @@ function ViewStock() {
     useEffect(() => {
         const fetchStockItem = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:3001/api/stock/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_HOST}/api/stock/${id}`);
                 setStock(response.data);
             } catch (error) {
                 console.error('Error:', error);

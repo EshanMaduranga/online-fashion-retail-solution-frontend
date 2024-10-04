@@ -38,7 +38,7 @@ function AddInventory() {
         //console.log('fun executed')
         if(imgUrl.length && formData.age.length && formData.clothType.length && formData.date.length && formData.desc.length && formData.gender.length && formData.img.length && formData.price.length && formData.supplier.length && formData.fullDesc.length) {
             //console.log('Img received')
-            axios.post('http://127.0.0.1:3001/api/inventory/add', formData)
+            axios.post(process.env.REACT_APP_API_HOST + '/api/inventory/add', formData)
             .then(res => {
                 console.log(res)
                 setError('')
@@ -72,7 +72,7 @@ function AddInventory() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:3001/api/suppliers');
+                const response = await axios.get(process.env.REACT_APP_API_HOST + '/api/suppliers');
                 setSuppliers(response.data);
                 const types = response.data.map(supplier => supplier.clothType);
                 const uniqueTypes = [...new Set(types)];
@@ -108,7 +108,7 @@ function AddInventory() {
         try {
             //const updatedFormData = { ...formData, lastUpdated: currentDate };
             
-            const response = await axios.post('http://127.0.0.1:3001/api/inventory', formData);
+            const response = await axios.post(process.env.REACT_APP_API_HOST + '/api/inventory', formData);
             console.log(response.data);
             setSuccess('Inventory added successfully.');
             setError('');
@@ -134,7 +134,7 @@ function AddInventory() {
         //reader.readAsDataURL(filex)
   //
         //reader.onload = () => {
-        //  axios.post('http://127.0.0.1:3001/api/upload', {img: reader.result})
+        //  axios.post(process.env.REACT_APP_API_HOST + '/api/upload', {img: reader.result})
         //  .then(res => {
         //    if(res.data.result.url !== '') {
         //        //console.log(res.data.result.url)

@@ -26,7 +26,7 @@ const Login = () => {
     if(EMAIL_REGEX.test(email) && password) {
       //console.log('ok')
 
-      axios.post('http://127.0.0.1:3001/api/user/login', {email, password})
+      axios.post(process.env.REACT_APP_API_HOST + '/api/user/login', {email, password})
       .then(res => {
         const newData = {id: res.data.response.id, token: res.data.token, refreshToken: res.data.refreshToken, firstName: res.data.response.firstName, email: res.data.response.email, role: res.data.response.role , ageCategory: res.data.response.ageCategory, gender: res.data.response.gender}
         //console.log("new data: ", newData)
